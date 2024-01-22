@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Tools - AP Statistics</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Interactive Statistics Tools</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact Dr. Kern</a></li>
+                <li><a href="resources.html">Materials/Resources</a></li>
+                <li><a href="tools.html">Interactive Tools</a></li>
+                <li><a href="data_submission.html">Data Submission</a></li>
+                <!-- Add other navigation links as needed -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="statsCalculator">
+            <h2>Statistics Formula Calculator</h2>
+            <!-- ... [existing calculator HTML] ... -->
+        
+            <button type="button" onclick="toggleNormalCalculator()">Normal Distribution Calculator</button>
+            <div id="normalCalculator" style="display: none;">
+                <h3>Normal Distribution Calculator</h3>
+                <form id="normalForm">
+                    <label for="normalMean">Mean (μ):</label>
+                    <input type="number" id="normalMean" step="any">
+
+                    <label for="normalStdDev">Standard Deviation (σ):</label>
+                    <input type="number" id="normalStdDev" step="any">
+
+                    <label for="normalXValue">X Value:</label>
+                    <input type="number" id="normalXValue" step="any">
+
+                    <button type="button" onclick="calculateNormal('pdf')">Calculate PDF</button>
+                    <button type="button" onclick="calculateNormal('cdf')">Calculate CDF</button>
+                </form>
+                <p id="normalResult"></p>
+            </div>
+         
+            <button type="button" onclick="toggleBinomialCalculator()">Binomial Distribution Calculator</button>
+            <div id="binomialCalculator" style="display: none;">
+                <h3>Binomial Calculator</h3>
+                <form id="binomialForm">
+                    <label for="trials">Number of Trials (n):</label>
+                    <input type="number" id="trials" step="1">
+
+                    <label for="probability">Probability of Success on a Single Trial (p):</label>
+                    <input type="number" id="probability" step="any" min="0" max="1">
+
+                    <label for="successes">Number of Successes (x):</label>
+                    <input type="number" id="successes" step="1">
+
+                    <button type="button" onclick="calculateBinomial('pdf')">Calculate PDF</button>
+                    <button type="button" onclick="calculateBinomial('cdf')">Calculate CDF</button>
+                </form>
+                <p id="binomialResult"></p>
+            </div>
+            <button type="button" onclick="toggleGeometricCalculator()">Geometric Distribution Calculator</button>
+            <div id="geometricCalculator" style="display: none;">
+                <h3>Geometric Calculator</h3>
+                <form id="geometricForm">
+                    <label for="geometricProbability">Probability of Success (p):</label>
+                    <input type="number" id="geometricProbability" step="any" min="0" max="1">
+
+                    <label for="geometricX">Number of Trials (x):</label>
+                    <input type="number" id="geometricX" step="1">
+
+                    <button type="button" onclick="calculateGeometric('pdf')">Calculate PDF</button>
+                    <button type="button" onclick="calculateGeometric('cdf')">Calculate CDF</button>
+                </form>
+                <p id="geometricResult"></p>
+            </div>
+            <button type="button" onclick="toggleInverseNormalCalculator()">Inverse Normal Calculator</button>
+            <div id="inverseNormalCalculator" style="display: none;">
+                <h3>Inverse Normal Calculator</h3>
+                <form id="inverseNormalForm">
+                    <label for="inverseArea">Area (Cumulative Probability):</label>
+                    <input type="number" id="inverseArea" step="any" min="0" max="1">
+
+                    <label for="inverseMean">Mean (μ):</label>
+                    <input type="number" id="inverseMean" step="any">
+
+                    <label for="inverseStdDev">Standard Deviation (σ):</label>
+                    <input type="number" id="inverseStdDev" step="any">
+
+                    <button type="button" onclick="calculateInverseNormal()">Calculate Inverse Normal</button>
+                </form>
+                <p id="inverseNormalResult"></p>
+            </div>
+            <p>Here you can calculate various statistical formulas.</p>
+        </section>
+
+        <section>
+            <h2>Data Visualization</h2>
+            <div id="normalDistributionGraphSection">
+                <h3>Normal Distribution Graph</h3>
+                
+                <label for="meanInput">Mean (μ):</label>
+                <input type="number" id="meanInput" value="0" step="any">
+            
+                <label for="stdDevInput">Standard Deviation (σ):</label>
+                <input type="number" id="stdDevInput" value="1" step="any">
+            
+                <button onclick="updateNormalDistributionGraph()">Update Graph</button>
+                
+                <canvas id="normalDistCanvas"></canvas>
+            </div>                    
+            <p>Visualize your data with interactive graphs.</p>
+        </section>
+
+        <!-- Additional interactive tools can be added here -->
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 AP Statistics, Isidore Newman School</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>
